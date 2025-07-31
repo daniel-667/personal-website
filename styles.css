@@ -159,26 +159,27 @@ aside a:hover {
 
 /* Location images under each stationed location */
 .location-images {
-    display: flex; /* Side-by-side layout */
-    flex-wrap: wrap; /* Wrap if too many images */
-    gap: 10px; /* Space between images */
-    margin-top: 10px; /* Space below location text */
+    display: flex;
+    flex-wrap: nowrap; /* Change to nowrap to prevent wrapping (images stay side by side, may overflow if too wide) */
+    gap: 10px;
+    margin-top: 10px;
+    overflow-x: auto; /* Optional: Adds horizontal scroll if images don't fit, preventing overlap */
 }
 
 .location-img {
-    width: 100px; /* Slightly bigger than 70px cert logos; adjust to 120px if needed */
-    height: auto; /* Maintains aspect ratio */
-    border: 1px solid #00FF00; /* Green border for terminal aesthetic */
+    width: 100px; /* Keep or adjust as before */
+    height: auto;
+    border: 1px solid #00FF00;
 }
 
 /* Responsive: Stack images on small screens */
 @media (max-width: 768px) {
     .location-images {
-        flex-direction: column; /* Stack vertically on mobile */
+        flex-direction: row; /* Override to keep side by side on mobile; change to column only if needed */
     }
     
     .location-img {
-        width: 80px; /* Slightly smaller on mobile; adjust as needed */
+        width: 80px; /* Keep this for mobile scaling */
     }
 }
 
