@@ -152,7 +152,7 @@ aside a:hover {
 }
 
 .military-grid img {
-    width: 100%;
+    width: 50%; /* Adjust to 60% if you want a 40% reduction instead */
     height: auto;
     border: 1px solid #00FF00;
 }
