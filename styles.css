@@ -144,27 +144,25 @@ aside a:hover {
 }
 
 /* Military grid */
-/* Military grid */
-/* Existing .military-grid styles; update for tighter ribbon rack */
+/* Existing .military-grid styles; update for tighter ribbon rack if multiple, but since single image, make it full-width */
 .military-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(30px, 1fr)); /* Smaller cells for more ribbons per row; adjust minmax for your number of ribbons */
-    gap: 2px; /* Tighter gap for rack appearance */
+    display: block; /* Change to block for single image; revert to grid if splitting ribbons */
     margin-bottom: 20px;
 }
 
 .military-grid img {
-    width: 100%; /* Scales to fit grid cells */
+    width: 100%; /* Full width for single ribbon rack */
     height: auto;
-    border: none; /* Remove border if not needed for ribbons; or keep 1px solid #00FF00 */
+    border: none; /* No border needed */
+    object-fit: contain; /* Prevent distortion */
 }
 
 /* New styles for uniform layout to match screenshot */
 .uniform-rack {
     position: relative;
-    max-width: 600px; /* Keeps the rack centered and constrained */
+    max-width: 600px; /* Constrain the entire rack */
     margin: 0 auto 20px;
-    padding-top: 40px; /* Space for emblem; adjust if needed */
+    padding-top: 40px; /* Space for emblem */
 }
 
 .emblem {
@@ -172,16 +170,12 @@ aside a:hover {
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 1; /* Ensures it's on top */
-    max-width: 100%; /* Prevents exceeding container width */
-    height: auto; /* Maintains aspect ratio */
-}
-
-.emblem img {
-    width: 40px; /* Target size; enforce it */
+    z-index: 1;
+    width: 40px; /* Fixed small size for emblem */
+    max-width: 40px; /* Enforce cap */
     height: auto;
-    max-height: 40px; /* Caps vertical stretch */
-    display: block; /* Ensures no inline quirks */
+    max-height: 40px; /* Cap vertical size */
+    object-fit: contain; /* Prevent distortion */
 }
 
 /* Ensure name tapes aren't affected */
@@ -194,74 +188,25 @@ aside a:hover {
 }
 
 .name-tapes img {
-    width: 30%; /* Roughly 1/3 each; adjust if images are too wide */
+    max-width: 30%; /* Cap width, allow natural scaling */
     height: auto;
-    max-width: 200px; /* Cap individual tape size */
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .uniform-rack {
-        max-width: 100%; /* Full width on mobile */
-        padding-top: 30px; /* Reduce emblem space on mobile */
-    }
-    
-    .emblem img {
-        width: 30px; /* Slightly smaller on mobile */
-        max-height: 30px;
-    }
-    
-    .name-tapes img {
-        width: 28%; /* Adjust for mobile fit */
-        max-width: 150px; /* Tighten cap */
-    }
-}
-
-/* If using one combined ribbon image instead of grid */
-.ribbon-rack-img {
-    width: 100%;
-    height: auto;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .uniform-rack {
-        max-width: 100%; /* Full width on mobile */
-    }
-    
-    .name-tapes img {
-        width: 28%; /* Slightly smaller to fit mobile */
-    }
-    
-    .military-grid {
-        grid-template-columns: repeat(auto-fit, minmax(25px, 1fr)); /* Adjust for mobile */
-    }
+    object-fit: contain; /* Fix distortion by preserving aspect ratio */
 }
 
 /* Location images under each stationed location */
 .location-images {
     display: flex;
-    flex-wrap: nowrap; /* Change to nowrap to prevent wrapping (images stay side by side, may overflow if too wide) */
+    flex-wrap: nowrap; /* Prevent wrapping */
     gap: 10px;
     margin-top: 10px;
-    overflow-x: auto; /* Optional: Adds horizontal scroll if images don't fit, preventing overlap */
+    overflow-x: auto; /* Scroll if too many */
 }
 
 .location-img {
-    width: 100px; /* Keep or adjust as before */
+    width: 100px;
     height: auto;
     border: 1px solid #00FF00;
-}
-
-/* Responsive: Stack images on small screens */
-@media (max-width: 768px) {
-    .location-images {
-        flex-direction: row; /* Override to keep side by side on mobile; change to column only if needed */
-    }
-    
-    .location-img {
-        width: 80px; /* Keep this for mobile scaling */
-    }
+    object-fit: contain; /* Fix any distortion here */
 }
 
 /* Projects grid */
@@ -289,7 +234,30 @@ aside a:hover {
         margin-bottom: 20px;
     }
     
+    .uniform-rack {
+        max-width: 100%; /* Full width on mobile */
+        padding-top: 30px; /* Reduce emblem space */
+    }
+    
+    .emblem {
+        width: 30px;
+        max-width: 30px;
+        max-height: 30px;
+    }
+    
+    .name-tapes img {
+        max-width: 28%;
+    }
+    
+    .location-images {
+        flex-direction: row; /* Keep side by side on mobile */
+    }
+    
+    .location-img {
+        width: 80px;
+    }
+    
     .military-grid {
-        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(25px, 1fr)); /* If reverting to multi-ribbons */
     }
 }
