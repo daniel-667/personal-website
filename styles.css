@@ -144,17 +144,73 @@ aside a:hover {
 }
 
 /* Military grid */
+/* Military grid */
+/* Existing .military-grid styles; update for tighter ribbon rack */
 .military-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(30px, 1fr)); /* Smaller cells for more ribbons per row; adjust minmax for your number of ribbons */
+    gap: 2px; /* Tighter gap for rack appearance */
     margin-bottom: 20px;
 }
 
 .military-grid img {
-    width: 50%; /* Adjust to 60% if you want a 40% reduction instead */
+    width: 100%; /* Scales to fit grid cells */
     height: auto;
-    border: 1px solid #00FF00;
+    border: none; /* Remove border if not needed for ribbons; or keep 1px solid #00FF00 */
+}
+
+/* New styles for uniform layout to match screenshot */
+.uniform-rack {
+    position: relative;
+    max-width: 600px; /* Adjust to fit your images; centers the rack */
+    margin: 0 auto 20px;
+    padding-top: 40px; /* Space for emblem */
+}
+
+.emblem {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1; /* Ensures it's on top */
+}
+
+.emblem img {
+    width: 40px; /* Small size like in screenshot; adjust as needed */
+    height: auto;
+}
+
+.name-tapes {
+    display: flex;
+    justify-content: space-between; /* Spaces them like left-center-right */
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.name-tapes img {
+    width: 30%; /* Roughly 1/3 each; adjust for your image proportions (e.g., 150px fixed if needed) */
+    height: auto;
+}
+
+/* If using one combined ribbon image instead of grid */
+.ribbon-rack-img {
+    width: 100%;
+    height: auto;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .uniform-rack {
+        max-width: 100%; /* Full width on mobile */
+    }
+    
+    .name-tapes img {
+        width: 28%; /* Slightly smaller to fit mobile */
+    }
+    
+    .military-grid {
+        grid-template-columns: repeat(auto-fit, minmax(25px, 1fr)); /* Adjust for mobile */
+    }
 }
 
 /* Location images under each stationed location */
