@@ -157,6 +157,31 @@ aside a:hover {
     border: 1px solid #00FF00;
 }
 
+/* Location images under each stationed location */
+.location-images {
+    display: flex; /* Side-by-side layout */
+    flex-wrap: wrap; /* Wrap if too many images */
+    gap: 10px; /* Space between images */
+    margin-top: 10px; /* Space below location text */
+}
+
+.location-img {
+    width: 100px; /* Slightly bigger than 70px cert logos; adjust to 120px if needed */
+    height: auto; /* Maintains aspect ratio */
+    border: 1px solid #00FF00; /* Green border for terminal aesthetic */
+}
+
+/* Responsive: Stack images on small screens */
+@media (max-width: 768px) {
+    .location-images {
+        flex-direction: column; /* Stack vertically on mobile */
+    }
+    
+    .location-img {
+        width: 80px; /* Slightly smaller on mobile; adjust as needed */
+    }
+}
+
 /* Projects grid */
 .project-grid {
     display: grid;
