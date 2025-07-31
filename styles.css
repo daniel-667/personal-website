@@ -137,7 +137,7 @@ aside a:hover {
 }
 
 .cert-logo {
-    width: 50px; /* Adjust this value (e.g., 40px for smaller, 60px for larger) */
+    width: 70px; /* Adjust this value (e.g., 40px for smaller, 60px for larger) */
     height: auto; /* Prevents distortion */
     vertical-align: middle; /* Aligns logo with text baseline */
     margin-right: 10px; /* Adds space between logo and title */
