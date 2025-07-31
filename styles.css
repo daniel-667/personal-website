@@ -1,0 +1,181 @@
+/* Global styles for Linux terminal aesthetic */
+/* Dark background, white text, green accents, monospaced font */
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&display=swap');
+
+body {
+    background-color: #000000; /* Black background */
+    color: #FFFFFF; /* White text */
+    font-family: 'Inconsolata', monospace; /* Monospaced font */
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+/* Header (terminal prompt navigation) */
+header {
+    background-color: #111111; /* Slightly lighter black for contrast */
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 255, 0, 0.2); /* Green shadow */
+}
+
+nav {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+nav a {
+    color: #00FF00; /* Green links */
+    text-decoration: none;
+    margin-right: 15px;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Main content container */
+main {
+    max-width: 1200px;
+    margin: 80px auto 20px; /* Space for fixed header */
+    padding: 20px;
+    display: flex; /* For sidebar + content */
+    gap: 20px;
+}
+
+/* Sections */
+section {
+    margin-bottom: 40px;
+    border-left: 2px solid #00FF00; /* Green border accent */
+    padding-left: 10px;
+}
+
+h1, h2, h3 {
+    color: #00FF00; /* Green headings */
+}
+
+/* Buttons (styled like terminal commands) */
+.button {
+    background-color: #000000;
+    color: #00FF00;
+    border: 1px solid #00FF00;
+    padding: 8px 12px;
+    text-decoration: none;
+    margin-right: 10px;
+    display: inline-block;
+}
+
+.button:hover {
+    background-color: #00FF00;
+    color: #000000;
+}
+
+/* Sticky sidebar navigation (for $whoami page) */
+aside {
+    width: 200px;
+    position: sticky;
+    top: 100px; /* Below header */
+    height: fit-content;
+}
+
+aside ul {
+    list-style: none;
+    padding: 0;
+}
+
+aside a {
+    color: #FFFFFF;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 10px;
+}
+
+aside a:hover {
+    color: #00FF00;
+}
+
+/* Timeline for Professional Experience */
+.timeline {
+    position: relative;
+    max-width: 100%;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    width: 2px;
+    background: #00FF00;
+    top: 0;
+    bottom: 0;
+    left: 20px;
+}
+
+.timeline-item {
+    margin-bottom: 20px;
+    position: relative;
+    padding-left: 40px;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #00FF00;
+    border-radius: 50%;
+    left: 16px;
+    top: 5px;
+}
+
+/* Certifications list */
+.cert-list li {
+    margin-bottom: 20px;
+}
+
+/* Military grid */
+.military-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.military-grid img {
+    width: 100%;
+    height: auto;
+    border: 1px solid #00FF00;
+}
+
+/* Projects grid */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: #111111;
+    padding: 20px;
+    border: 1px solid #00FF00;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    main {
+        flex-direction: column; /* Stack sidebar on top for mobile */
+    }
+    
+    aside {
+        position: static; /* No sticky on mobile */
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    
+    .military-grid {
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    }
+}
