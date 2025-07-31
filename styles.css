@@ -162,9 +162,9 @@ aside a:hover {
 /* New styles for uniform layout to match screenshot */
 .uniform-rack {
     position: relative;
-    max-width: 600px; /* Adjust to fit your images; centers the rack */
+    max-width: 600px; /* Keeps the rack centered and constrained */
     margin: 0 auto 20px;
-    padding-top: 40px; /* Space for emblem */
+    padding-top: 40px; /* Space for emblem; adjust if needed */
 }
 
 .emblem {
@@ -173,23 +173,48 @@ aside a:hover {
     left: 50%;
     transform: translateX(-50%);
     z-index: 1; /* Ensures it's on top */
+    max-width: 100%; /* Prevents exceeding container width */
+    height: auto; /* Maintains aspect ratio */
 }
 
 .emblem img {
-    width: 40px; /* Small size like in screenshot; adjust as needed */
+    width: 40px; /* Target size; enforce it */
     height: auto;
+    max-height: 40px; /* Caps vertical stretch */
+    display: block; /* Ensures no inline quirks */
 }
 
+/* Ensure name tapes aren't affected */
 .name-tapes {
     display: flex;
-    justify-content: space-between; /* Spaces them like left-center-right */
+    justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
+    margin-top: 20px; /* Extra space below emblem */
 }
 
 .name-tapes img {
-    width: 30%; /* Roughly 1/3 each; adjust for your image proportions (e.g., 150px fixed if needed) */
+    width: 30%; /* Roughly 1/3 each; adjust if images are too wide */
     height: auto;
+    max-width: 200px; /* Cap individual tape size */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .uniform-rack {
+        max-width: 100%; /* Full width on mobile */
+        padding-top: 30px; /* Reduce emblem space on mobile */
+    }
+    
+    .emblem img {
+        width: 30px; /* Slightly smaller on mobile */
+        max-height: 30px;
+    }
+    
+    .name-tapes img {
+        width: 28%; /* Adjust for mobile fit */
+        max-width: 150px; /* Tighten cap */
+    }
 }
 
 /* If using one combined ribbon image instead of grid */
