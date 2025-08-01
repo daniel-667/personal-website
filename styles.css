@@ -201,10 +201,10 @@ aside a:hover {
 }
 
 .rank-img {
-    width: 200px; /* Display size; fits well with 320px original, adjustable to 250px if desired */
-    max-width: 200px; /* Cap to prevent oversizing */
+    width: 100px; /* Display size; fits well with 320px original, adjustable to 250px if desired */
+    max-width: 100px; /* Cap to prevent oversizing */
     height: auto;
-    max-height: 200px; /* Cap vertical stretch */
+    max-height: 100px; /* Cap vertical stretch */
     object-fit: contain; /* Prevent distortion */
     border: 1px solid #00FF00; /* Match terminal aesthetic */
 }
@@ -221,9 +221,9 @@ aside a:hover {
 /* Responsive adjustments for rank info */
 @media (max-width: 768px) {
     .rank-img {
-        width: 150px; /* Smaller on mobile, still clear with 320px original */
-        max-width: 150px;
-        max-height: 150px;
+        width: 75px; /* Smaller on mobile, still clear with 320px original */
+        max-width: 75px;
+        max-height: 75px;
     }
     
     .rank-info p {
