@@ -193,6 +193,44 @@ aside a:hover {
     object-fit: contain; /* Fix distortion by preserving aspect ratio */
 }
 
+/* New styles for rank information below name tapes */
+.rank-info {
+    text-align: center; /* Center the image and text */
+    margin-top: 20px; /* Space below name tapes */
+    margin-bottom: 10px; /* Space before ribbon rack */
+}
+
+.rank-img {
+    width: 200px; /* Display size; fits well with 320px original, adjustable to 250px if desired */
+    max-width: 200px; /* Cap to prevent oversizing */
+    height: auto;
+    max-height: 200px; /* Cap vertical stretch */
+    object-fit: contain; /* Prevent distortion */
+    border: 1px solid #00FF00; /* Match terminal aesthetic */
+}
+
+.rank-info p {
+    margin-top: 5px; /* Space between image and text */
+    font-size: 14px; /* Slightly smaller than body text */
+    color: #FFFFFF;
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto; /* Center the text */
+}
+
+/* Responsive adjustments for rank info */
+@media (max-width: 768px) {
+    .rank-img {
+        width: 150px; /* Smaller on mobile, still clear with 320px original */
+        max-width: 150px;
+        max-height: 150px;
+    }
+    
+    .rank-info p {
+        font-size: 12px; /* Smaller text on mobile */
+    }
+}
+
 /* Location images under each stationed location */
 .location-images {
     display: flex;
