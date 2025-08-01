@@ -2,6 +2,10 @@
 /* Dark background, white text, green accents, monospaced font */
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&display=swap');
 
+img {
+    border: 1px solid #00FF00 !important; /* Apply green border to all images, overriding specific exceptions */
+}
+
 body {
     background-color: #000000; /* Black background */
     color: #FFFFFF; /* White text */
@@ -137,24 +141,24 @@ aside a:hover {
 }
 
 .cert-logo {
-    width: 70px; /* Adjust this value (e.g., 40px for smaller, 60px for larger) */
+    width: 70px; /* Adjust this value */
     height: auto; /* Prevents distortion */
     vertical-align: middle; /* Aligns logo with text baseline */
     margin-right: 10px; /* Adds space between logo and title */
+    border: 1px solid #00FF00; /* Already consistent with global rule */
 }
 
 /* Military grid */
-/* Existing .military-grid styles; update for tighter ribbon rack if multiple, but since single image, make it full-width */
 .military-grid {
-    display: block; /* Change to block for single image; revert to grid if splitting ribbons */
+    display: block; /* For single ribbon rack image */
     margin-bottom: 20px;
 }
 
 .military-grid img {
     width: 100%; /* Full width for single ribbon rack */
     height: auto;
-    border: none; /* No border needed */
     object-fit: contain; /* Prevent distortion */
+    border: 1px solid #00FF00; /* Added to match global style */
 }
 
 /* New styles for uniform layout to match screenshot */
@@ -171,11 +175,12 @@ aside a:hover {
     left: 50%;
     transform: translateX(-50%);
     z-index: 1;
-    width: 60px; /* Fixed small size for emblem */
-    max-width: 60px; /* Enforce cap */
+    width: 60px; /* Current size */
+    max-width: 60px;
     height: auto;
-    max-height: 60px; /* Cap vertical size */
+    max-height: 60px;
     object-fit: contain; /* Prevent distortion */
+    border: 1px solid #00FF00; /* Added to match global style */
 }
 
 /* Ensure name tapes aren't affected */
@@ -188,9 +193,10 @@ aside a:hover {
 }
 
 .name-tapes img {
-    max-width: 35%; /* Cap width, allow natural scaling */
+    max-width: 35%; /* Current size */
     height: auto;
-    object-fit: contain; /* Fix distortion by preserving aspect ratio */
+    object-fit: contain; /* Fix distortion */
+    border: 1px solid #00FF00; /* Added to match global style */
 }
 
 /* New styles for rank information below name tapes */
@@ -201,12 +207,12 @@ aside a:hover {
 }
 
 .rank-img {
-    width: 100px; /* Display size; fits well with 320px original, adjustable to 250px if desired */
-    max-width: 100px; /* Cap to prevent oversizing */
+    width: 100px; /* Current size */
+    max-width: 100px;
     height: auto;
-    max-height: 100px; /* Cap vertical stretch */
+    max-height: 100px;
     object-fit: contain; /* Prevent distortion */
-    border: 1px solid #00FF00; /* Match terminal aesthetic */
+    border: 1px solid #00FF00; /* Already consistent with global rule */
 }
 
 .rank-info p {
@@ -216,19 +222,6 @@ aside a:hover {
     max-width: 90%;
     margin-left: auto;
     margin-right: auto; /* Center the text */
-}
-
-/* Responsive adjustments for rank info */
-@media (max-width: 768px) {
-    .rank-img {
-        width: 75px; /* Smaller on mobile, still clear with 320px original */
-        max-width: 75px;
-        max-height: 75px;
-    }
-    
-    .rank-info p {
-        font-size: 12px; /* Smaller text on mobile */
-    }
 }
 
 /* Location images under each stationed location */
@@ -243,8 +236,8 @@ aside a:hover {
 .location-img {
     width: 100px;
     height: auto;
-    border: 1px solid #00FF00;
-    object-fit: contain; /* Fix any distortion here */
+    object-fit: contain; /* Fix any distortion */
+    border: 1px solid #00FF00; /* Already consistent with global rule */
 }
 
 /* Projects grid */
@@ -295,7 +288,13 @@ aside a:hover {
         width: 80px;
     }
     
-    .military-grid {
-        grid-template-columns: repeat(auto-fit, minmax(25px, 1fr)); /* If reverting to multi-ribbons */
+    .rank-img {
+        width: 75px;
+        max-width: 75px;
+        max-height: 75px;
+    }
+    
+    .rank-info p {
+        font-size: 12px; /* Smaller text on mobile */
     }
 }
