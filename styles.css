@@ -171,10 +171,10 @@ aside a:hover {
     left: 50%;
     transform: translateX(-50%);
     z-index: 1;
-    width: 40px; /* Fixed small size for emblem */
-    max-width: 40px; /* Enforce cap */
+    width: 60px; /* Fixed small size for emblem */
+    max-width: 60px; /* Enforce cap */
     height: auto;
-    max-height: 40px; /* Cap vertical size */
+    max-height: 60px; /* Cap vertical size */
     object-fit: contain; /* Prevent distortion */
 }
 
@@ -188,7 +188,7 @@ aside a:hover {
 }
 
 .name-tapes img {
-    max-width: 30%; /* Cap width, allow natural scaling */
+    max-width: 35%; /* Cap width, allow natural scaling */
     height: auto;
     object-fit: contain; /* Fix distortion by preserving aspect ratio */
 }
@@ -240,13 +240,13 @@ aside a:hover {
     }
     
     .emblem {
-        width: 30px;
-        max-width: 30px;
-        max-height: 30px;
+        width: 45px;
+        max-width: 45px;
+        max-height: 45px;
     }
     
     .name-tapes img {
-        max-width: 28%;
+        max-width: 32%;
     }
     
     .location-images {
